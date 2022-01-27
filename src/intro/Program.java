@@ -18,7 +18,7 @@ public class Program {
     }
 
     private static int pow(int arg, int power) {
-        // Java has Math.pow() but this time write your own implementation.
+        // Java has Math.pow() but this time write your own impleme  ntation.
 
         return 0;
     }
