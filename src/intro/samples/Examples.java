@@ -9,7 +9,7 @@ public class Examples {
 
         // loop from 0 to 2
         for (int i = 0; i < 3; i++) {
-            System.out.println(i); // 0 ...m m,
+            System.out.println(i); // 0 ...
         }
 
         // concatenate two strings
