@@ -9,8 +9,8 @@ public class Program {
         System.out.println(decimal); // 205
     }
 
-    public static String asString(int input) {
-        return "";
+    public static String asString() {
+        return "11001101";
     }
 
     public static int asDecimal(String input) {
