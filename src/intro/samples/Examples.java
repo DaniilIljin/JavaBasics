@@ -5,7 +5,7 @@ public class Examples {
     public static void main(String[] args) {
 
         // print to console
-        System.out.println("Hello!"); // Hello!
+        System.out.println("Hello!"); //   Hello!
 
         // loop from 0 to 2
         for (int i = 0; i < 3; i++) {
