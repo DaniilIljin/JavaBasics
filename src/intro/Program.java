@@ -8,7 +8,7 @@ public class Program {
         String str = asString(205);
 
         System.out.println(decimal); // 205
-        System.out.println(str); //   "101"
+        System.out.println(str); // "101"
     }
 
     public static String asString(int num) {
