@@ -3,7 +3,15 @@ package types;
 public class Overload {
 
     public static void main(String[] args) {
-
+        long x = 23;
+        long y = 32;
+        int a = 23;
+        int b = 32;
+        String s = "23";
+        String o = "32";
+        System.out.println(add(x, y));
+        System.out.println(add(a, b));
+        System.out.println(add(s, o));
     }
 
     public static long add(long x, long y) {

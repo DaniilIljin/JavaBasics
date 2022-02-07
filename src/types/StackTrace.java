@@ -24,7 +24,7 @@ public class StackTrace {
 
     public static Integer readProfitConstant() {
         // Some code that produces null
-        Integer result = null;
+        Integer result = 1;
 
         return result;
     }
