@@ -12,11 +12,11 @@ public class Tests {
 
     @Test
     public void calculatesSumFromArrayOfIntegers() {
-        assertThat(Code.sum(new int[] {1, 3, -2, 9}), is(11));
+        assertThat(Code.sum(new int[]{1, 3, -2, 9}), is(11));
 
-        assertThat(Code.sum(new int[] {1, 3, 9}), is(13));
+        assertThat(Code.sum(new int[]{1, 3, 9}), is(13));
 
-        assertThat(Code.sum(new int[] {1, 3, -2, 9, 4}), is(15));
+        assertThat(Code.sum(new int[]{1, 3, -2, 9, 4}), is(15));
     }
 
     @Test
@@ -30,13 +30,13 @@ public class Tests {
 
     @Test
     public void findsMinimumElementFromArrayOfIntegers() {
-        assertThat(Code.minimumElement(new int[] {1, 3, -2, 9}), is(-2));
+        assertThat(Code.minimumElement(new int[]{1, 3, -2, 9}), is(-2));
 
-        assertThat(Code.minimumElement(new int[] {1, 2, 3, 4, 5, 0}), is(0));
+        assertThat(Code.minimumElement(new int[]{1, 2, 3, 4, 5, 0}), is(0));
 
-        assertThat(Code.minimumElement(new int[] {1}), is(1));
+        assertThat(Code.minimumElement(new int[]{1}), is(1));
 
-        assertThat(Code.minimumElement(new int[] {}), is(nullValue()));
+        assertThat(Code.minimumElement(new int[]{}), is(nullValue()));
     }
 
     @Test
@@ -63,9 +63,9 @@ public class Tests {
 
     @Test
     public void createsStringFromArray() {
-        assertThat(Code.asString(new int[] { 1, 3, -2, 9 }), is("1, 3, -2, 9"));
+        assertThat(Code.asString(new int[]{1, 3, -2, 9}), is("1, 3, -2, 9"));
 
-        assertThat(Code.asString(new int[] { }), is(""));
+        assertThat(Code.asString(new int[]{}), is(""));
     }
 
     @Test

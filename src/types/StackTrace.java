@@ -14,7 +14,7 @@ public class StackTrace {
     }
 
     public static Double calculateBasePrice() {
-        // some complex calculation that produces 100 as netCost
+        // some complex calculation that produces 100   as netCost
         Double netCost = 100D;
 
         Integer profitConstant = readProfitConstant();

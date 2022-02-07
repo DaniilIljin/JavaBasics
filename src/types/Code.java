@@ -18,7 +18,7 @@ public class Code {
 
         System.out.println(minimumElement(new int[] {}));
 
-        System.out.println(asString(new int[] { 1, 3, -2, 9 }));  //tagastab "1, 3, -2, 9"
+        System.out.println(asString(new int[] { 1, 3, -2, 9 }));  //  tagastab "1, 3, -2, 9"
 
         System.out.println(mode("bbbbaaaaacccccc"));
 
