@@ -30,7 +30,6 @@ public class Code {
                 if (longestStreak < currentStreak) {
                     longestStreak = currentStreak;
                 }
-                currentStreak = 0;
                 }
             return longestStreak;
                 }

@@ -10,24 +10,24 @@ public class Tests {
 
     @Test
     public void equalityExamples() {
-        assertTrue(1 == 1);
-        assertFalse(1 == 2);
-
-        Integer x2 = 1;
-        Integer y2 = 1;
-        assertTrue(x2 == y2);
-
-        Integer x = 128;
-        Integer y = 128;
-        assertFalse(x == y);
-        assertTrue(x.equals(y));
-
-        assertTrue("abc" == "abc");
-        assertTrue("abc" == "a" + "bc");
-
-        String a = "a";
-        assertFalse("abc" == a + "bc");
-        assertTrue("abc".equals(a + "bc"));
+//        assertTrue(1 == 1);
+//        assertFalse(1 == 2);
+//
+//        Integer x2 = 1;
+//        Integer y2 = 1;
+//        assertTrue(x2 == y2);
+//
+//        Integer x = 128;
+//        Integer y = 128;
+//        assertFalse(x == y);
+//        assertTrue(x.equals(y));
+//
+//        assertTrue("abc" == "abc");
+//        assertTrue("abc" == "a" + "bc");
+//
+//        String a = "a";
+//        assertFalse("abc" == a + "bc");
+//        assertTrue("abc".equals(a + "bc"));
     }
 
     @Test
