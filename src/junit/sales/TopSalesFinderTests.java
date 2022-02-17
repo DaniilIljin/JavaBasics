@@ -39,7 +39,7 @@ public class TopSalesFinderTests {
         for (SalesRecord record : generateRecords(10, 10)) {
             tsf.registerSale(record);
         }
-
+        String[] a = tsf.findItemsSoldOver(100);
         assertThat(tsf.findItemsSoldOver(100),
                 arrayContainingInAnyOrder("p1", "p3", "p4"));
     }
@@ -50,7 +50,8 @@ public class TopSalesFinderTests {
         for (SalesRecord record : generateRecords(100, 20)) {
             tsf.registerSale(record);
         }
-
+        int a = tsf.allRecords.length;
+        int b = tsf.findItemsSoldOver(100).length;
         assertThat("There should be 19 items that sold over 100",
                 tsf.findItemsSoldOver(100).length, is(19));
 

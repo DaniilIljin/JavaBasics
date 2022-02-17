@@ -2,14 +2,16 @@ package junit.sales;
 
 public class SalesRecord {
 
-    private String productId;
-    private int productPrice;
-    private int itemsSold;
+    private final String productId;
+    public int productPrice;
+    public int itemsSold;
+    public int totalSum;
 
     public SalesRecord(String productId, int productPrice, int itemsSold) {
         this.productId = productId;
         this.productPrice = productPrice;
         this.itemsSold = itemsSold;
+        this.totalSum = itemsSold * productPrice;
     }
 
     public String getProductId() {
@@ -24,11 +26,13 @@ public class SalesRecord {
         return itemsSold;
     }
 
+    public int getTotalSum() {
+        return totalSum;
+    }
+
     @Override
     public String toString() {
-        return "SalesRecord{" +
-                "productId='" + productId + '\'' +
-                ", productPrice=" + productPrice +
+        return "SalesRecord{" + "productId='" + productId + '\'' + ", productPrice=" + productPrice +
                 ", itemsSold=" + itemsSold +
                 '}';
     }
