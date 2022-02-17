@@ -14,6 +14,7 @@ public class SalesRecord {
         this.totalSum = itemsSold * productPrice;
     }
 
+
     public String getProductId() {
         return productId;
     }

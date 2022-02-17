@@ -50,7 +50,6 @@
 //
 package junit.sales;
 
-import java.util.Arrays;
 
 public class TopSalesFinder {
     public SalesRecord[] allRecords = new SalesRecord[0];
