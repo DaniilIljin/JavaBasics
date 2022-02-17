@@ -1,53 +1,3 @@
-//package junit.sales;
-//
-//public class TopSalesFinder {
-//    public static void main(String[] args) {
-//
-//    }
-//
-//    private SalesRecord[] records = new SalesRecord[0];
-//
-//    public void registerSale(SalesRecord record) {
-//        for (SalesRecord salesRecord : records) {
-//            if(salesRecord.getProductId().equals(record.getProductId())){
-//                salesRecord.getItemsSold() += record.getItemsSold();
-//            }else {
-//                this.records = expandingList(this.records, record);
-//            }
-//        }
-//        // store sales record for later analyses by findItemsSoldOver()
-//
-//    }
-//
-//    public String[] findItemsSoldOver(int amount) {
-//        String[] neededIds = new String[0];
-//        SalesRecord[] finalList = new SalesRecord[0];
-//        for (SalesRecord record : this.records) {
-//            if(record.getItemsSold() > amount){
-//                finalList = expandingList(finalList, record);
-//            }
-//        }
-//        for (SalesRecord salesRecord : finalList) {
-//            neededIds = expandingList(neededIds, salesRecord.getProductId());
-//        }
-//        // find ids of records that sold over specified amount.
-//
-//        return neededIds;
-//    }
-//
-
-//
-//    public String[] expandingList(String[] array, String currentRecord){
-//        String [] finalList = new String[array.length + 1];
-//        for (int i = 0; i < array.length; i++) {
-//            finalList[i] = array[i];
-//        }
-//        finalList[this.records.length] = currentRecord;
-//        return finalList;
-//    }
-//}
-//
-//
 package junit.sales;
 
 
@@ -73,7 +23,7 @@ public class TopSalesFinder {
         } else {
             for (SalesRecord storedRecord : this.allRecords) {
             if (storedRecord.getProductId().equals(record.getProductId())) {
-                storedRecord.totalSum += record.getTotalSum();
+                storedRecord.totalSum += record.totalSum;
                 checker = false;
             }
         }
@@ -87,14 +37,14 @@ public class TopSalesFinder {
     public String[] findItemsSoldOver(int amount) {
         int counter = 0;
         for (SalesRecord record : this.allRecords) {
-            if (amount < record.getTotalSum()){
+            if (amount < record.totalSum){
                 counter++;
             }
         }
         String[] neededArray = new String[counter];
         int neededNum;
         for (SalesRecord record : this.allRecords) {
-            if (amount < record.getTotalSum()){
+            if (amount < record.totalSum){
                 neededNum = neededArray.length - counter;
                 neededArray[neededNum] = record.getProductId();
                 counter--;

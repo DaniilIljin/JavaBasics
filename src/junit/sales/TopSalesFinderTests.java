@@ -9,6 +9,7 @@ import static org.hamcrest.Matchers.*;
 
 public class TopSalesFinderTests {
 
+
     @Test
     public void findTopSales() {
 

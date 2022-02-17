@@ -19,6 +19,7 @@ public class SalesRecord {
         return productId;
     }
 
+
     public int getProductPrice() {
         return productPrice;
     }
@@ -27,9 +28,6 @@ public class SalesRecord {
         return itemsSold;
     }
 
-    public int getTotalSum() {
-        return totalSum;
-    }
 
     @Override
     public String toString() {
