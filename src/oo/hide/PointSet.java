@@ -75,27 +75,23 @@ public class PointSet {
     @Override
     public boolean equals(Object obj){
         if (obj instanceof PointSet other){
-            if (this.size() != other.size()){
-                return false;
-            }
-            for (Point point : array) {
-            if(point != null){
-                int counter = 0;
-                for (Point point1 : other.array) {
-                    if (point1 != null){
-                        if (!(point.equals(point1))){
-                            counter++;
+            if (this.size() == other.size()){
+                for (Point point : array) {
+                    if(point != null){
+                        int counter = 0;
+                        for (Point point1 : other.array) {
+                            if ((point1 != null) && !(point.equals(point1))){
+                                counter++;
+                            }
+                        }
+                        if (counter == other.size()){
+                            return false;
                         }
                     }
                 }
-                if (counter == other.size()){
-                    return false;
-                }
+                return true;
             }
         }
-            return true;
-        }
-
         return false;
     }
 
@@ -105,10 +101,8 @@ public class PointSet {
             if (point != null) {
                 int counter = 0;
                 for (Point point1 : other.array) {
-                    if(point1 != null){
-                        if(!(point.equals(point1))){
-                            counter++;
-                        }
+                    if ((point1 != null) && !(point.equals(point1))){
+                        counter++;
                     }
                 }
                 if (counter == other.size()){
@@ -125,10 +119,8 @@ public class PointSet {
             if (point != null) {
                 int counter = 0;
                 for (Point point1 : other.array) {
-                    if(point1 != null){
-                        if(!(point.equals(point1))){
-                            counter++;
-                        }
+                    if ((point1 != null) && !(point.equals(point1))){
+                        counter++;
                     }
                 }
                 if (counter < other.size()){
