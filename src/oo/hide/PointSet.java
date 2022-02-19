@@ -96,10 +96,10 @@ public class PointSet {
     }
 
     public PointSet subtract(PointSet other) {
+        int counter = 0;
         PointSet newOne = new PointSet();
         for (Point point : array) {
             if (point != null) {
-                int counter = 0;
                 for (Point point1 : other.array) {
                     if ((point1 != null) && !(point.equals(point1))){
                         counter++;
@@ -108,24 +108,27 @@ public class PointSet {
                 if (counter == other.size()){
                     newOne.add(point);
                 }
+                counter = 0;
             }
         }
         return newOne;
     }
 
+
     public PointSet intersect(PointSet other) {
+        int counter = 0;
         PointSet newOne = new PointSet();
         for (Point point : array) {
             if (point != null) {
-                int counter = 0;
                 for (Point point1 : other.array) {
                     if ((point1 != null) && !(point.equals(point1))){
                         counter++;
                     }
                 }
                 if (counter < other.size()){
-                    newOne.add(point);
-                }
+                newOne.add(point);
+            }
+                counter = 0;
             }
         }
         return newOne;
