@@ -5,13 +5,11 @@ public class SalesRecord {
     private final String productId;
     public int productPrice;
     public int itemsSold;
-    public int totalSum;
 
     public SalesRecord(String productId, int productPrice, int itemsSold) {
         this.productId = productId;
         this.productPrice = productPrice;
         this.itemsSold = itemsSold;
-        this.totalSum = itemsSold * productPrice;
     }
 
 
