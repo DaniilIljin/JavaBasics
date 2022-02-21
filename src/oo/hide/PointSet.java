@@ -76,20 +76,15 @@ public class PointSet {
     public boolean equals(Object obj){
         if (obj instanceof PointSet other){
             if (this.size() == other.size()){
-                for (Point point : array) {
+                int counter = 0;
+                for (Point point : other.array) {
                     if(point != null){
-                        int counter = 0;
-                        for (Point point1 : other.array) {
-                            if ((point1 != null) && !(point.equals(point1))){
-                                counter++;
-                            }
-                        }
-                        if (counter == other.size()){
-                            return false;
+                        if (this.contains(point)){
+                            counter++;
                         }
                     }
                 }
-                return true;
+                return counter == this.size();
             }
         }
         return false;
@@ -101,7 +96,7 @@ public class PointSet {
         for (Point point : array) {
             if (point != null) {
                 for (Point point1 : other.array) {
-                    if ((point1 != null) && !(point.equals(point1))){
+                    if (point1 != null && !(point.equals(point1))){
                         counter++;
                     }
                 }
@@ -121,7 +116,7 @@ public class PointSet {
         for (Point point : array) {
             if (point != null) {
                 for (Point point1 : other.array) {
-                    if ((point1 != null) && !(point.equals(point1))){
+                    if (point1 != null && !(point.equals(point1))){
                         counter++;
                     }
                 }
