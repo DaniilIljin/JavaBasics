@@ -75,17 +75,13 @@ public class PointSet {
     @Override
     public boolean equals(Object obj){
         if (obj instanceof PointSet other){
-            if (this.size() == other.size()){
                 int counter = 0;
-                for (Point point : other.array) {
-                    if(point != null){
-                        if (this.contains(point)){
+                for (Point point : other.array){
+                    if(point != null && this.contains(point)){
                             counter++;
-                        }
                     }
                 }
-                return counter == this.size();
-            }
+                return counter == this.size() && this.size() == other.size();
         }
         return false;
     }
