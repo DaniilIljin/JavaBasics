@@ -29,7 +29,7 @@ public class TopSalesFinder {
     public String[] findItemsSoldOver(int amount) {
         int counter = 0;
         for (SalesRecord record : this.allRecords) {
-            if (amount < findNeededProduct(record.getProductId()) && (repeats1(record.getProductId()))){
+            if (amount < findNeededProduct(record.getProductId()) && repeats1(record.getProductId())){
                 counter++;
                 expandingList1(record.getProductId());
             }
@@ -37,7 +37,7 @@ public class TopSalesFinder {
         String[] neededArray = new String[counter];
         int neededNum;
         for (SalesRecord record : this.allRecords) {
-            if (amount < findNeededProduct(record.getProductId()) && (repeats2(record.getProductId()))){
+            if (amount < findNeededProduct(record.getProductId()) && repeats2(record.getProductId())){
                 expandingList2(record.getProductId());
                 neededNum = neededArray.length - counter;
                 neededArray[neededNum] = record.getProductId();
