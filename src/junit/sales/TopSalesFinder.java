@@ -1,7 +1,6 @@
 package junit.sales;
 
 
-import java.util.Arrays;
 
 public class TopSalesFinder {
     public SalesRecord[] allRecords = new SalesRecord[0];
@@ -10,6 +9,7 @@ public class TopSalesFinder {
 
 
     public static void main(String[] args) {
+
 //        System.out.println(new SalesRecord("U", 1, 1).getProductId());
 //        TopSalesFinder tsf = new TopSalesFinder();
 //        tsf.registerSale(new SalesRecord("p1", 20, 1));
@@ -28,9 +28,6 @@ public class TopSalesFinder {
 
     public String[] findItemsSoldOver(int amount) {
         int counter = 0;
-        String[] a = this.repeated1;
-        String[] B = this.repeated2;
-
         for (SalesRecord record : this.allRecords) {
             if (amount < findNeededProduct(record.getProductId()) && (repeats1(record.getProductId()))){
                 counter++;
