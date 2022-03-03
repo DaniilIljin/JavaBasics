@@ -15,10 +15,8 @@ public class NumberConverter {
         FileInputStream is = null;
         try {
             is = new FileInputStream(filePath);
-
             InputStreamReader reader = new InputStreamReader(
                     is, StandardCharsets.UTF_8);
-
             properties.load(reader);
         }catch (IOException e){
             throw new MissingLanguageFileException(lang, e);
@@ -33,15 +31,14 @@ public class NumberConverter {
         if (is == null) {
             return;
         }
-
         try {
             is.close();
         } catch (IOException ignore) {}
     }
 
     public String numberInWords(Integer number) {
-        if(properties.containsKey(String.valueOf(number))) {
-            return properties.getProperty(String.valueOf(number));
+        if(check(number)) {
+            return get(number);
         }
         String word = "";
         if (number > 99 && number < 1000){
@@ -55,53 +52,70 @@ public class NumberConverter {
         if (number > 10 && number < 20){
             word += makeTeens(number);
         } else {
-                if (!properties.containsKey(String.valueOf(number))){
+                if (!check(number)){
                     throw new MissingTranslationException(String.valueOf(number));
                 }
-                if (word != "" && number == 0){
+                if (!word.equals("") && number == 0){
                 return word;
                 } else {
-                    word += properties.getProperty(String.valueOf(number));
+                    word += get(number);
                 }
         }
         return word;
     }
 
+    public boolean check(Integer number){
+        return properties.containsKey(String.valueOf(number));
+    }
+
+    public boolean check(String number){
+        return properties.containsKey(number);
+    }
+
+    public String get(Integer number){
+        return properties.getProperty(String.valueOf(number));
+    }
+
+    public String get(String number){
+        return properties.getProperty(number);
+    }
+
     public String makeTeens(Integer number) {
-        if(!properties.containsKey(String.valueOf(number / 10)) || !properties.containsKey("teen")){
+        if(!check(number / 10) || !check("teen")){
             throw new MissingTranslationException(String.valueOf(number));
         }
-        if(properties.containsKey(String.valueOf(number))) {
-            return properties.getProperty(String.valueOf(number));
+        if(check(number)) {
+            return get(number);
         }  else {
-            return properties.getProperty(String.valueOf(number % 10)) + properties.getProperty("teen");}
+            return get(number % 10) + get("teen");
+        }
     }
 
      public String makeTens(Integer number){
-         if(!properties.containsKey(String.valueOf(number / 10)) || !properties.containsKey("tens-suffix")
-                 || !properties.containsKey("tens-after-delimiter")){
+         if(!check(number / 10) || !check("tens-suffix")
+                 || !check("tens-after-delimiter")){
              throw new MissingTranslationException(String.valueOf(number));
          }
          String answer = "";
-         if (properties.containsKey(String.valueOf(number - number % 10))){
-             answer += properties.getProperty(String.valueOf(number - number % 10));
+         if (check(number - number % 10)){
+             answer += get(number - number % 10);
          } else {
-             answer += properties.getProperty(String.valueOf(number / 10)) + properties.getProperty("tens-suffix");
+             answer += get(number / 10) + get("tens-suffix");
          }
          if (number % 10 != 0){
-             answer += properties.getProperty("tens-after-delimiter");
+             answer += get("tens-after-delimiter");
          }
          return answer;
      }
       public String makeHundreds(Integer number) {
-          if(!properties.containsKey(String.valueOf(number / 100)) || !properties.containsKey("hundred") ||
-                  !properties.containsKey("hundreds-before-delimiter") || !properties.containsKey("hundreds-after-delimiter")){
+          if(!check(number / 100) || !check("hundred") ||
+                  !check("hundreds-before-delimiter") || !check("hundreds-after-delimiter")){
               throw new MissingTranslationException(String.valueOf(number));
           }
-          String answer = properties.getProperty(String.valueOf(number / 100)) + properties.getProperty("hundreds-before-delimiter") +
-                  properties.getProperty("hundred");
+          String answer = get(number / 100) + get("hundreds-before-delimiter") +
+                  get("hundred");
           if (number % 100 != 0){
-              answer += properties.getProperty("hundreds-after-delimiter");
+              answer += get("hundreds-after-delimiter");
           }
           return answer;
       }
