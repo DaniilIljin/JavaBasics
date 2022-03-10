@@ -21,7 +21,6 @@ public sealed abstract class AbstractTaxSalesAnalyser
         for (SalesRecord record : records) {
             id2 = record.getProductId();
             for (SalesRecord salesRecord : records) {
-                String u = salesRecord.getProductId();
                 if (salesRecord.getProductId().equals(id2)){
                     counter2 += salesRecord.getItemsSold();
                 }
@@ -43,7 +42,6 @@ public sealed abstract class AbstractTaxSalesAnalyser
         for (SalesRecord record : records) {
             id2 = record.getProductId();
             for (SalesRecord salesRecord : records) {
-                String u = salesRecord.getProductId();
                 if (salesRecord.getProductId().equals(id2)){
                     counter2 += salesRecord.getItemsSold() * salesRecord.getProductPrice();
                 }
