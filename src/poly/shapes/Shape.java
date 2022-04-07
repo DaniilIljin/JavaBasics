@@ -1,5 +1,5 @@
 package poly.shapes;
 
-public interface Shapes {
+public interface Shape {
     Double getArea();
 }

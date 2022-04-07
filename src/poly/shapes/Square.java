@@ -1,6 +1,6 @@
 package poly.shapes;
 
-public class Square implements Shapes{
+public class Square implements Shape{
     private int side;
 
     public Square(int side) {

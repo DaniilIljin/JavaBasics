@@ -1,6 +1,6 @@
 package poly.shapes;
 
-public class Rectangle implements Shapes{
+public class Rectangle implements Shape{
     private int height;
     private int width;
 
