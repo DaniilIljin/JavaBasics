@@ -15,7 +15,7 @@ public class ShapeTest {
     @Test
     public void computesTotalArea() {
 
-        List<Shapes> objects = Arrays.asList(
+        List<? extends Shapes> objects = Arrays.asList(
                 new Circle(5), new Rectangle(2, 4), new Square(3));
 
         double totalArea = 0.0;
