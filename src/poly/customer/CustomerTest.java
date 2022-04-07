@@ -32,7 +32,6 @@ public class CustomerTest {
 
     @Test
     public void regularCustomerGetsPointsForOrdersOver100() {
-        String t = LocalDate.now().toString();
         Integer pointsBefore = getPointsFor("c2");
 
         collector.gatherCustomerBonus("c2", new Order(200, currentDate()));
