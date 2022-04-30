@@ -23,7 +23,7 @@ private Object getInstance(Class<?> clazz){
     try {
         return clazz.getDeclaredConstructor().newInstance();
     } catch (Exception e) {
-        throw new RuntimeException("Can not create an instance");
+        throw new RuntimeException("Can not create an instance.");
     }
 }
 
