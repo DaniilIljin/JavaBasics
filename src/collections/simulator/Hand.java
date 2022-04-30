@@ -1,10 +1,16 @@
 package collections.simulator;
-
 import java.util.*;
 
 public class Hand implements Iterable<Card>, Comparable<Hand> {
 
     private List<Card> cards = new ArrayList<>();
+    private HandType hand = null;
+    private List<Card.CardValue> strongestCard = new ArrayList<>();
+
+    public List<Card.CardValue> getStrongestCard(){
+        hand = getHandType();
+        return strongestCard;
+    }
 
     public void addCard(Card card) {
         cards.add(card);
@@ -44,6 +50,15 @@ public class Hand implements Iterable<Card>, Comparable<Hand> {
         if (type == HandType.HIGH_CARD){
             type = checkPairs(cards);
         }
+        if(type == HandType.HIGH_CARD){
+            Card strongestCard = cards.get(0);
+            for (int i = 1; i < cards.size(); i++) {
+                if (strongestCard.getValue().ordinal() < cards.get(i).getValue().ordinal()){
+                    strongestCard = cards.get(i);
+                }
+            }
+            this.strongestCard.add(strongestCard.getValue());
+        }
         return type;
     }
 
@@ -59,6 +74,7 @@ public class Hand implements Iterable<Card>, Comparable<Hand> {
             }
             if (counter % 2 == 0){
                 totalPairs++;
+                strongestCard.add(value);
             }
         }
         // The counter will be twice bigger than the number of actual pairs,
@@ -84,6 +100,7 @@ public class Hand implements Iterable<Card>, Comparable<Hand> {
             }
             //if function will count 3 elements of the same value, it will immediately return HandType.TRIPS
             if (counter == 3){
+                strongestCard.add(value);
                 return HandType.TRIPS;
             }
         }
@@ -108,6 +125,7 @@ public class Hand implements Iterable<Card>, Comparable<Hand> {
                 }
             }
             if (counter == 4){
+                strongestCard.add(value);
                 return HandType.FOUR_OF_A_KIND;
             }
         }
@@ -131,9 +149,10 @@ public class Hand implements Iterable<Card>, Comparable<Hand> {
             } else if (b - a == 1){
                 counter++;
             }
-        }
-        if(counter == 5){
-            return HandType.STRAIGHT;
+            if(counter == 5){
+                strongestCard.add(cards.get(i).getValue());
+                return HandType.STRAIGHT;
+            }
         }
         return HandType.HIGH_CARD;
     }
@@ -146,9 +165,10 @@ public class Hand implements Iterable<Card>, Comparable<Hand> {
                 if ( value == currentCard.getSuit()){
                     counter++;
                 }
-            }
-            if (counter % 5 == 0){
-                return HandType.FLUSH;
+                if (counter % 5 == 0){
+                    strongestCard.add(card.getValue());
+                    return HandType.FLUSH;
+                }
             }
         }
         return HandType.HIGH_CARD;

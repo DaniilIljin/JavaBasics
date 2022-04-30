@@ -23,6 +23,11 @@ public class HandTests {
         assertThat(new Card(K, H).compareTo(new Card(A, H)), is(-1));
     }
 
+    public static void main(String[] args) {
+        Hand hand = Helpers.getFlushHand("23456");
+        System.out.println(hand.getStrongestCard());
+    }
+
     @Test
     public void cardsCanBeSorted() {
         List<Card> cards = Arrays.asList(

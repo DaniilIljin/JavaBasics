@@ -1,8 +1,12 @@
 package collections.benchmark;
 
+import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.*;
 
+
 public class MySet implements Set<Integer> {
+    HashSet<Number> hs = new HashSet<>();
 
     private List<Integer> data = new ArrayList<>();
 
@@ -15,9 +19,9 @@ public class MySet implements Set<Integer> {
         return false;
     }
 
-
-
-
+    public static void main(String[] args) {
+        System.out.println(5/4);
+    }
 
 
 

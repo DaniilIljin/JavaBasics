@@ -69,7 +69,7 @@ public class NumberConverter {
     }
 
     public boolean check(String number){
-        return properties.containsKey(number);
+        return !properties.containsKey(number);
     }
 
     public String get(Integer number){
@@ -81,7 +81,7 @@ public class NumberConverter {
     }
 
     public String makeTeens(Integer number) {
-        if(!check(number / 10) || !check("teen")){
+        if(!check(number / 10) || check("teen")){
             throw new MissingTranslationException(String.valueOf(number));
         }
         if(check(number)) {
@@ -92,8 +92,8 @@ public class NumberConverter {
     }
 
      public String makeTens(Integer number){
-         if(!check(number / 10) || !check("tens-suffix")
-                 || !check("tens-after-delimiter")){
+         if(!check(number / 10) || check("tens-suffix")
+                 || check("tens-after-delimiter")){
              throw new MissingTranslationException(String.valueOf(number));
          }
          String answer = "";
@@ -108,8 +108,8 @@ public class NumberConverter {
          return answer;
      }
       public String makeHundreds(Integer number) {
-          if(!check(number / 100) || !check("hundred") ||
-                  !check("hundreds-before-delimiter") || !check("hundreds-after-delimiter")){
+          if(!check(number / 100) || check("hundred") ||
+                  check("hundreds-before-delimiter") || check("hundreds-after-delimiter")){
               throw new MissingTranslationException(String.valueOf(number));
           }
           String answer = get(number / 100) + get("hundreds-before-delimiter") +
