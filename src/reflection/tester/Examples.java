@@ -10,7 +10,6 @@ public class Examples {
 
         System.out.println(Arrays.toString(aClass.getMethods()));
 
-        Class<? extends Throwable> expected = RuntimeException.class;
         // expected = IllegalArgumentException.class;
 
         if (RuntimeException.class.isAssignableFrom(IllegalStateException.class)) {
