@@ -33,7 +33,7 @@ private Object getInstance(Class<?> clazz){
             if(annotation != null){
                 try {
                     method.invoke(getInstance(clazz));
-                    if(Exception.class.isAssignableFrom(annotation.expected())){
+                    if(annotation.expected() != MyTest.None.class){
                         testResults.add(method.getName() + "() - FAILED");
                     } else {
                         testResults.add(method.getName() + "() - OK");
