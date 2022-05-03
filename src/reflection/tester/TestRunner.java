@@ -19,20 +19,12 @@ public class TestRunner {
         }
     }
 
-private Object getInstance(Class<?> clazz){
-    try {
-        return clazz.getDeclaredConstructor().newInstance();
-    } catch (Exception e) {
-        throw new RuntimeException("Can not create an instance.");
-    }
-}
-
     private void runMethods(Class<?> clazz){
         for (Method method : clazz.getDeclaredMethods()) {
             MyTest annotation = method.getAnnotation(MyTest.class);
             if(annotation != null){
                 try {
-                    method.invoke(getInstance(clazz));
+                    method.invoke(clazz.getDeclaredConstructor().newInstance());
                     if(annotation.expected() != MyTest.None.class){
                         testResults.add(method.getName() + "() - FAILED");
                     } else {
