@@ -19,6 +19,8 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
+
+
 public class VehicleOwner {
     private int vehicles;
     public VehicleOwner(int vehicles){
@@ -37,13 +39,6 @@ public class VehicleOwner {
                 new VehicleOwner(37),
                 new VehicleOwner(40)
         ));
-
-        HashSet<Number> hs = new HashSet<Integer>();
-        HashSet<? super ClassCastException> set = new HashSet<Exception>();
-        List<String> list = new Vector<String>();
-        List<Object> values = new HashSet<Object>();
-        List<Object> objects = new ArrayList<? extends Object>();
-        Map<String, ? extends Number> hm = new HashMap<String, Integer>();
 
         System.out.println(VehicleOwner.sortOwnersByNumberOfOwnedVehicles(owners).stream().map(each -> each.vehicles).toList());
     }
